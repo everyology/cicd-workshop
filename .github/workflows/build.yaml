@@ -51,7 +51,7 @@ jobs:
                   },
                   {
                     "type": "mrkdwn",
-                    "text": "*Repository:* <https://github.com/everyology/cicd-workshop>"
+                    "text": "*Repository:* ${{github.server_url}}/${{github.repository}}"
                   }
                 ]
               },
