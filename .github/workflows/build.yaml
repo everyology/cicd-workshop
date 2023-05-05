@@ -1,0 +1,78 @@
+name: Workflow
+on:
+  push
+    # branches:
+    # - 'release/v*.*'
+
+jobs:
+  hello_world
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout source
+      run: actions/checkout@v3
+    
+    - name: Deploy to railway
+      run: railway up
+    
+    - name: Slack notification
+      id: slack
+      uses: slackapi/slack-github-action@v1.23.0
+      with:
+        payload: | 
+          {
+	          "blocks": [
+            {
+              "type": "header",
+              "text": {
+                "type": "plain_text",
+                "text": "DipSA 56 CI/CD Submission",
+                "emoji": true
+              }
+            },
+            {
+              "type": "section",
+              "fields": [
+                {
+                  "type": "mrkdwn",
+                  "text": "*Name:* Fong Ying Jie"
+                },
+                {
+                  "type": "mrkdwn",
+                  "text": "*Email:* <mailto:yingjiefong@u.nus.edu|yingjiefong@u.nus.edu>"
+                },
+                {
+                  "type": "mrkdwn",
+                  "text": "*Matriculation:* A0158328X"
+                },
+                {
+                  "type": "mrkdwn",
+                  "text": "*Repository:* <https://github.com/everyology/cicd-workshop>"
+                }
+              ]
+            },
+            {
+              "type": "section",
+              "text": {
+                "type": "mrkdwn",
+                "text": "<https://dreary-pie-production.up.railway.app/>"
+              },
+              "accessory": {
+                "type": "button",
+                "text": {
+                  "type": "plain_text",
+                  "text": "Go",
+                  "emoji": true
+                },
+                "value": "click_me_123",
+                "url": "https://dreary-pie-production.up.railway.app/",
+                "action_id": "button-action"
+              }
+            }
+          ]
+        }
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.TEST }}
+        SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+          
+        
