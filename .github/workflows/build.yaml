@@ -1,8 +1,8 @@
 name: Workflow
 on:
-  push
-    # branches:
-    # - 'release/v*.*'
+  push:
+    branches:
+    - 'release/v*.*'
 
 jobs:
   hello_world:
