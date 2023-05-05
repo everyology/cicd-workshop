@@ -10,10 +10,10 @@ jobs:
     steps:
 
     - name: Checkout source
-      run: actions/checkout@v3
+      uses: actions/checkout@v3
     
-    # - name: Deploy to railway
-    #   run: railway up
+    - name: Deploy to railway
+      run: railway up
     
     - name: Slack notification
       id: slack
