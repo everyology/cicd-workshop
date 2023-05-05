@@ -59,7 +59,7 @@ jobs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "<https://dreary-pie-production.up.railway.app/>"
+                  "text": "<${{ secrets.RAILWAY_URL }}>"
                 },
                 "accessory": {
                   "type": "button",
@@ -69,7 +69,7 @@ jobs:
                     "emoji": true
                   },
                   "value": "click_me_123",
-                  "url": "https://dreary-pie-production.up.railway.app/",
+                  "url": "${{ secrets.RAILWAY_URL }}",
                   "action_id": "button-action"
                 }
               }
