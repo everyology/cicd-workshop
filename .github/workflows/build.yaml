@@ -12,8 +12,8 @@ jobs:
     - name: Checkout source
       run: actions/checkout@v3
     
-    - name: Deploy to railway
-      run: railway up
+    # - name: Deploy to railway
+    #   run: railway up
     
     - name: Slack notification
       id: slack
@@ -72,7 +72,7 @@ jobs:
             ]
           }
       env:
-        SLACK_WEBHOOK_URL: ${{ secrets.TEST }}
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
           
         
