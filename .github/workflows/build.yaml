@@ -39,15 +39,15 @@ jobs:
                 "fields": [
                   {
                     "type": "mrkdwn",
-                    "text": "*Name:* Fong Ying Jie"
+                    "text": "*Name:* ${{secrets.NAME}}"
                   },
                   {
                     "type": "mrkdwn",
-                    "text": "*Email:* <mailto:yingjiefong@u.nus.edu|yingjiefong@u.nus.edu>"
+                    "text": "*Email:* <mailto:${{secrets.EMAIL}}|${{secrets.EMAIL}}>"
                   },
                   {
                     "type": "mrkdwn",
-                    "text": "*Matriculation:* A0158328X"
+                    "text": "*Matriculation:* ${{secrets.MATRICULATION}}"
                   },
                   {
                     "type": "mrkdwn",
